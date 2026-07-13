@@ -4,6 +4,7 @@ import Home from './pages/blog/Home'
 import Register from './pages/auth/Register'
 import Login from './pages/auth/login'
 import Addblog from './pages/blog/Addblog'
+import Editblog from './pages/blog/Editblog'
 
 const App = () => {
   return (
@@ -12,7 +13,8 @@ const App = () => {
         <Route path="/home" element={<Home/>} />
         <Route path="/register" element={<Register/>} />
         <Route path="/login" element={<Login/>} />
-        <Route path='addblog' element={<Addblog/>} />
+        <Route path='/blog/add' element={<Addblog/>} />
+        <Route path='/blog/edit' element={<Editblog/>} />
     </Routes>
     </BrowserRouter>
   )

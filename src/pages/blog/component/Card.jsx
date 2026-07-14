@@ -1,8 +1,10 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const Card = () => {
   return (
     <>
+  <Link to='/blog/id'>
     <div className="flex px-3 py-3 mb-2">
   <div className="max-w-sm rounded overflow-hidden shadow-lg">
     <img className="w-full" src="https://static.toiimg.com/thumb/msid-106381172,width-748,height-499,resizemode=4,imgsize-1894276/.jpg" alt="Sunset in the mountains" />
@@ -20,6 +22,7 @@ const Card = () => {
     </div>
   </div>
 </div>
+  </Link>
 </>
   )
 }

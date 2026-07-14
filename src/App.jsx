@@ -5,6 +5,7 @@ import Register from './pages/auth/Register'
 import Login from './pages/auth/login'
 import Addblog from './pages/blog/Addblog'
 import Editblog from './pages/blog/Editblog'
+import Singleblog from './pages/blog/Singleblog'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/login" element={<Login/>} />
         <Route path='/blog/add' element={<Addblog/>} />
         <Route path='/blog/edit' element={<Editblog/>} />
+        <Route path='/blog/id' element={<Singleblog/>} />
     </Routes>
     </BrowserRouter>
   )

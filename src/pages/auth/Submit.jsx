@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const Submit = ({type}) => {
-    console.log(type)
+const Submit = ({type,onSub}) => {
+  const [data,setData] = useState({
+    email:"",
+    username:"",
+    password:""
+  })
+  const handleChange = (e)=>{
+const {name,value} = e.target;
+setData({
+  ...data,
+  [name]:value
+})
+}
+const handleSubmit=(e)=>{   {/* e--> event */}
+e.preventDefault();
+onSub(data); { /* yo onsubmit chai submit component ko call vako ho jaha chai mathi ko data jati */}
+}
   return (
     <main className="w-full h-screen flex flex-col items-center justify-center px-4">
   <div className="max-w-sm w-full text-gray-600 space-y-5">
@@ -12,28 +27,35 @@ const Submit = ({type}) => {
         </h1>
       </div>
     </div>
-    <form className="space-y-5">
+
+
+
+
+  {/*onSubmit chai data api lai pthauna garinxa*/}
+    <form onSubmit={handleSubmit} className="space-y-5 ">
 
     {
       type==='Register' &&(
           <div>
         <label className="font-medium"> Username </label>
-        <input type="text" required className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-red-600 shadow-sm rounded-lg" />
+        <input type="text" name='username' required className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-red-600 shadow-sm rounded-lg" onChange={handleChange} />
       </div>
       )
     }
       <div>
         <label className="font-medium"> Email </label>
-        <input type="email" required className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-red-600 shadow-sm rounded-lg" />
+        <input type="email" name='email' className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-red-600 shadow-sm rounded-lg  " onChange={handleChange} />
       </div>
       <div>
         <label className="font-medium"> Password </label>
-        <input type="password" required className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-red-600 shadow-sm rounded-lg" />
+        <input type="password" name='password' required className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-red-600 shadow-sm rounded-lg" onChange={handleChange}  />
       </div>
       <button className="w-full px-4 py-3 mt-2 text-white font-medium bg-red-600 hover:bg-red-500 active:bg-red-600 rounded-lg duration-150">
         {type==="Register" ? 'Register' : 'Login'}
       </button>
     </form>
+
+
     <button className="w-full flex items-center justify-center gap-x-3 py-2.5 border rounded-lg text-sm font-medium hover:bg-gray-50 duration-150 active:bg-gray-100">
       {/* SVG for Google Sign In */}
       <img src="https://raw.githubusercontent.com/sidiDev/remote-assets/7cd06bf1d8859c578c2efbfda2c68bd6bedc66d8/google-icon.svg" alt="Google" className="w-5 h-5" />

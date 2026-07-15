@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 const Submit = ({type,onSub}) => {
   const [data,setData] = useState({
@@ -64,7 +65,14 @@ onSub(data); { /* yo onsubmit chai submit component ko call vako ho jaha chai ma
     </button>
     <p className="text-center">
         {type==="Register" ? "Already" : "Don't"} have an account? 
-      <a href="javascript:void(0)" className="font-medium text-red-600 hover:text-red-500 m-1"> {type==="Register" ? 'Login' : 'Register'}</a>
+      <a href="javascript:void(0)" className="font-medium text-red-600 hover:text-red-500 m-1">
+
+        
+         {type==="Register" ?(
+       <Link to='/login'>Login </Link> ) :(
+        <Link to='/register'>Register</Link>q
+      )
+  }</a>
     </p>
   </div>
 </main>

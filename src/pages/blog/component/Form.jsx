@@ -10,11 +10,11 @@ const Form = ({type,onSub},) => {
     const {name,type} = e.target
 setData({
 ...data,
-[name]: name==='file'? e.target.file[0] :vlaue
+[name]: name==='file'? e.target.file[0]:vlaue
 })
   }
   const handleBlog = (e)=>{
-    e.preventDefault;
+    e.preventDefault();
     onSub(data)
   }
   return (
@@ -22,25 +22,25 @@ setData({
  
   <section className="grow container mx-auto p-6 ">
     <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">{type} a New Blog Post</h1>
-    <form onSubmit={handleBlog} onChange={handleData} action="/addBlog" method="POST" className="max-w-2xl mx-auto bg-amber-260 p-6 rounded-lg shadow-md ">
+    <form onSubmit={handleBlog} className="max-w-2xl mx-auto bg-amber-260 p-6 rounded-lg shadow-md ">
       {/* Title */}
       <div className="mb-4 ">
         <label htmlFor="title" className="block text-gray-700 font-semibold mb-2">Title</label>
-        <input type="text" id="title" name="title" required className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter blog title" />
+        <input type="text" id="title" name="title" required className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter blog title" onChange={handleData} />
       </div>
       {/* Title */}
       <div className="mb-4">
         <label htmlFor="subtitle" className="block text-gray-700 font-semibold mb-2">Sub Title</label>
-        <input type="text" id="subtitle" name="subtitle" required className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter blog sub title" />
+        <input type="text" id="subtitle" name="subtitle" required className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter blog sub title"onChange={handleData}  />
       </div>
       {/* description */}
       <div className="mb-4">
         <label htmlFor="description" className="block text-gray-700 font-semibold mb-2">Description</label>
-        <textarea id="description" name="description" required className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Write your blog content here" defaultValue={""} />
+        <textarea id="description" name="description" required className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Write your blog content here" defaultValue={""} onChange={handleData} />
       </div>
         {/* file */}
       <div className="mb-4">
-        <input type="file" name="file" required className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Write your blog content here" defaultValue={""} />
+        <input type="file" name="file" className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Write your blog content here" defaultValue={""} onChange={handleData} />
       </div>
       {/* Submit Button */}
       <div className="text-center">

@@ -14,11 +14,15 @@ const Login = () => {
     const response = await axios.post(baseurl+"/login",data);
   
    if(response.status===200){
-   navigate("/login")
+    {/* server bata pthayeko token data vitra hunxa*/}
+    console.log(response.data); 
+    localStorage.setItem("token",response.data.token)
+   navigate("/home")
 
    }else{
     alert("failed")
    }
+
     
 
 

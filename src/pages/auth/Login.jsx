@@ -11,7 +11,7 @@ const Login = () => {
   try { 
     
     
-    const response = await axios.post(baseurl+"/login",data);
+    const response = await axios.post(`${baseurl}/login`,data);
   
    if(response.status===200){
     {/* server bata pthayeko token data vitra hunxa*/}
@@ -20,12 +20,13 @@ const Login = () => {
    navigate("/home")
 
    }else{
+    console.log(response)
     alert("failed")
    }
 
     
 
-
+   
 
 
 
@@ -41,7 +42,7 @@ const Login = () => {
 }
 
 export default Login
-
+ 
 
 
 

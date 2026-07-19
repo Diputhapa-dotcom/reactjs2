@@ -4,15 +4,17 @@ const Form = ({type,onSub},) => {
  const [data,setData] = useState({
     title:'',
     subtitle:'',
-  description:''
+  description:'',
+  file:''
   })
   const handleData = (e)=>{
-    const {name,type} = e.target
+    const {name,value} = e.target
 setData({
 ...data,
-[name]: name==='file'? e.target.file[0]:vlaue
+[name]: name==='file'? e.target.files[0] : value
 })
   }
+  console.log(data)
   const handleBlog = (e)=>{
     e.preventDefault();
     onSub(data)

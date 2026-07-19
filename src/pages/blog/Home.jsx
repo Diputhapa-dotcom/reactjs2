@@ -1,17 +1,28 @@
-import React from 'react'
-// import picture from '../../assets/pic2.webp' 
+import React, { useEffect, useState } from 'react'
 import Layout from '../../component/Layout'
 import Card from './component/Card'
+import axios from 'axios';
+import { baseurl } from '../../config';
 
 const Home = () => {
+  const [data,setData] = useState([]);
+  const fetchBlogs = async ()=>{
+   const response =  await axios.get(`${baseurl}/blog`);
+
+
+  console.log(response);
+  }
+useEffect(()=>{
+  fetchBlogs()
+},[])
   return (
   <Layout>
     <div className='flex flex-wrap justify-center mt-8'>
+      {
+        console.log(data.length)
+      }
+    <Card/>
 
-    <Card/>
-    <Card/>
-    <Card/>
-    <Card/>
     </div>
   </Layout>
   )

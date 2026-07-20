@@ -11,7 +11,7 @@ try {
       const response = await axios.post(`${baseurl}/blog`,data,{       
    headers : {
       "Content-Type" : "multipart/form-data",
-      "Authorization" : localStorage.getItem('token')
+      "Authorization" : localStorage.getItem("token")
     }
   })
 } catch (error) {

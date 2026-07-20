@@ -8,13 +8,11 @@ const Home = () => {
   const [data,setData] = useState([]);
   const fetchBlogs = async ()=>{
    const response =  await axios.get(`${baseurl}/blog`);
-
-
-  console.log(response);
+  setData(response.data.data)
   }
 useEffect(()=>{
   fetchBlogs()
-},[])
+},[]);
   return (
   <Layout>
     <div className='flex flex-wrap justify-center mt-8'>

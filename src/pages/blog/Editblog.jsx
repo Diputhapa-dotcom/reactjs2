@@ -12,7 +12,6 @@ const Editblog = () => {
   return (
     <Layout>
     <Form type='Edit' onSub={handleEdit}/>
-
     </Layout>
   )
 }

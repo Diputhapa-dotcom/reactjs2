@@ -5,13 +5,13 @@ const Form = ({type,onSub},) => {
     title:'',
     subtitle:'',
   description:'',
-  file:''
+  files:''
   })
   const handleData = (e)=>{
     const {name,value} = e.target
 setData({
 ...data,
-[name]: name==='file'? e.target.files[0] : value
+[name]: name==='files'? e.target.files[0] : value
 })
   }
   console.log(data)
@@ -42,7 +42,7 @@ setData({
       </div>
         {/* file */}
       <div className="mb-4">
-        <input type="file" name="file" className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Write your blog content here" defaultValue={""} onChange={handleData} />
+        <input type="file" name="files" className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Write your blog content here" defaultValue={""} onChange={handleData} />
       </div>
       {/* Submit Button */}
       <div className="text-center">

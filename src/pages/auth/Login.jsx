@@ -8,32 +8,15 @@ const Login = () => {
 
   const navigate = useNavigate()
   const handleLogin = async (data)=>{  {/**data chai object ma pthauna parxa aarthad json form ma pthauna parxa */}
-  try { 
+
     
     
     const response = await axios.post(`${baseurl}/login`,data);
+    if(response.status===200){
+      localStorage.setItem("token",response.data.token);
+    
+    }
   
-   if(response.status===200){
-    {/* server bata pthayeko token data vitra hunxa*/}
-    console.log(response.data); 
-    localStorage.setItem("token",response.data.token)
-   navigate("/home")
-
-   }else{
-    console.log(response)
-    alert("failed")
-   }
-
-    
-
-   
-
-
-
-  } catch (error) {
-    alert(error.response.data.message);
-    
-  }
 
   }
   return (

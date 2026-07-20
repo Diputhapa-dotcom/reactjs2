@@ -16,7 +16,7 @@ setData({
 }
 const handleSubmit=(e)=>{   {/* e--> event */}
 e.preventDefault();
-onSub(data); { /* yo onsubmit chai submit component ko call vako ho jaha chai mathi ko data jati */}
+onSub(data);       { /* yo onsubmit chai submit component ko call vako ho jaha chai mathi ko data jati */}
 }
   return (
     <main className="w-full h-screen flex flex-col items-center justify-center px-4">

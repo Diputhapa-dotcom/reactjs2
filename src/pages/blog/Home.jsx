@@ -15,13 +15,18 @@ useEffect(()=>{
 },[]);
   return (
   <Layout>
-    <div className='flex flex-wrap justify-center mt-8'>
-      {
-        console.log(data.length)
-      }
-    <Card/>
+    <div className='flex flex-wrap  mt-8'>
 
-    </div>
+      {
+        data.length>0 && data.map((item)=>{
+          return(
+            <Card blogs={item}/>
+          ) 
+          
+        })
+      }
+      </div>
+
   </Layout>
   )
 }

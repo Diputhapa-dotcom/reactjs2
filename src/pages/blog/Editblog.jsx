@@ -8,8 +8,8 @@ import { useNavigate, useParams } from 'react-router-dom'
 const Editblog = () => {
   const {id} = useParams();
   const navigate = useNavigate();
-  const handleEdit =async  (data)=>{
- const response = await axios.post(`${baseurl}/edit/${id}`,data,{
+  const handleEdit =async (data)=>{
+ const response = await axios.patch(`${baseurl}/edit/${id}`,data,{
   headers:{
     "Content-Type":"multipart/form-data",
     "Authorization": localStorage.getItem("token")

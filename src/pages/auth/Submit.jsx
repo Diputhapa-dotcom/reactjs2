@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
 
 const Submit = ({type,onSub}) => {
+
   const [data,setData] = useState({
     email:"",
     username:"",

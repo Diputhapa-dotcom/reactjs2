@@ -12,7 +12,6 @@ const Login = () => {
     
     
     const response = await axios.post(`${baseurl}/login`,data);
-  
    if(response.status===200){
     {/* server bata pthayeko token data vitra hunxa*/}
     console.log(response.data); 
@@ -20,7 +19,7 @@ const Login = () => {
    navigate("/home")
 
    }
-
+   
   }
   return (
 <Submit type="Login" onSub={handleLogin}/>

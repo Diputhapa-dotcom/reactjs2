@@ -9,15 +9,14 @@ const Editblog = () => {
   const {id} = useParams();
   const navigate = useNavigate();
   const handleEdit =async  (data)=>{
- const response = await axios.put(`${baseurl}/edit/${id}`,data,{
+ const response = await axios.post(`${baseurl}/edit/${id}`,data,{
   headers:{
     "Content-Type":"multipart/form-data",
     "Authorization": localStorage.getItem("token")
   }
  });
  console.log(response.data)
- navigate("/home")
-
+ navigate(`/blog/${id}`)
   }
   
   return (

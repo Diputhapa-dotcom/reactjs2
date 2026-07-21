@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Layout from '../../component/Layout'
 import Card from './component/Card'
 import { Link, useNavigate, useParams } from 'react-router-dom'
@@ -11,8 +11,28 @@ const Singleblog = ({blogs}) => {
   const handleDelete=async ()=>{
     await axios.delete(`${baseurl}/blog/delete/${id}`);
     navigate("/home")
+    
 
+    const [data,setData] = useState({})
+      const hanldeBlog = async ()=>{
+        const response = await axios.get(`${baseurl}/blog/${id}`)
+        if(response.status===200){
+          setData(response.data.data)
+        }
+      }
+      useEffect(()=>{
+       hanldeBlog()
+      },[])
+  
+
+      console.log(data)
   }
+
+
+
+
+
+
   return (
   <Layout>
   <div className="bg-gray-100 dark:bg-gray-800 py-8 h-screen w-screen">
@@ -38,8 +58,7 @@ const Singleblog = ({blogs}) => {
       <div className="md:flex-1 px-4">
         <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">Product Name</h2>
         <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed
-          ante justo. Integer euismod libero id mauris malesuada tincidunt.
+         
         </p>
         <div className="flex mb-4">
           <div className="mr-4">

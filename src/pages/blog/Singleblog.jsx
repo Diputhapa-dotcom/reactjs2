@@ -1,10 +1,18 @@
 import React from 'react'
 import Layout from '../../component/Layout'
 import Card from './component/Card'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import axios from 'axios'
+import { baseurl } from '../../config'
 
-const Singleblog = () => {  
-  const {id} =useParams()
+const Singleblog = ({blogs}) => {  
+  const {id} =useParams();
+  const navigate = useNavigate();
+  const handleDelete=async ()=>{
+    await axios.delete(`${baseurl}/blog/delete/${id}`);
+    navigate("/home")
+
+  }
   return (
   <Layout>
   <div className="bg-gray-100 dark:bg-gray-800 py-8 h-screen w-screen">
@@ -17,11 +25,13 @@ const Singleblog = () => {
         <div className="flex -mx-2 mb-4">
           <div className="w-1/2 px-2 ">
           <Link to={`/blog/edit/${id}`}>
-            <button className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700">Edit</button>
+            <button className="w-full bg-gray-900 dark:bg-gray-600 text-white py-2 px-4 rounded-full font-bold hover:bg-gray-800 dark:hover:bg-gray-700" >Edit</button>
           </Link>
           </div>
           <div className="w-1/2 px-2">
-            <button className="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600">Delete</button>
+    
+            <button className="w-full bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-white py-2 px-4 rounded-full font-bold hover:bg-gray-300 dark:hover:bg-gray-600" onClick={handleDelete}>Delete</button>
+  
           </div>
         </div>
       </div>

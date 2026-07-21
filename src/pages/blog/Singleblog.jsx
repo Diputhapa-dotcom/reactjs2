@@ -8,26 +8,30 @@ import { baseurl } from '../../config'
 const Singleblog = ({blogs}) => {  
   const {id} =useParams();
   const navigate = useNavigate();
-  const handleDelete=async ()=>{
-    await axios.delete(`${baseurl}/blog/delete/${id}`);
-    navigate("/home")
-    
-
-    const [data,setData] = useState({})
-      const hanldeBlog = async ()=>{
-        const response = await axios.get(`${baseurl}/blog/${id}`)
-        if(response.status===200){
-          setData(response.data.data)
-        }
-      }
-      useEffect(()=>{
-       hanldeBlog()
-      },[])
   
+  const handleDelete=async ()=>{
+   const response = await axios.delete(`${baseurl}/blog/delete/${id}`);
+   if(response.status===2000){
 
-      console.log(data)
-  }
-
+     navigate("/home");
+   }
+    
+    
+  };
+  {/*fetching single data*/}
+      const [data,setData] = useState({})
+        const hanldeBlog = async ()=>{
+          console.log(id)
+          const response = await axios.get(`${baseurl}/blog/${id}`)
+          console.log(response)
+          if(response.status===200){
+            setData(response.data.data)
+          }
+        }
+        useEffect(()=>{
+          hanldeBlog()
+        },[])
+  console.log(data)
 
 
 
@@ -40,7 +44,7 @@ const Singleblog = ({blogs}) => {
     <div className="flex flex-col md:flex-row -mx-4 ">
       <div className="md:flex-1 px-4">
         <div className="h-115 rounded-lg bg-gray-300 dark:bg-gray-700 mb-4 ">
-          <img className="w-full h-full object-cover" src="https://cdn.pixabay.com/photo/2020/05/22/17/53/mockup-5206355_960_720.jpg" alt="Product Image " />
+          <img className="w-full h-full object-cover" src="https://cdn.pixabay.com/photo/2020/05/22/17/53/mockup-5206355_960_720.jpg  " alt="Product Image " />
         </div>
         <div className="flex -mx-2 mb-4">
           <div className="w-1/2 px-2 ">
@@ -56,9 +60,9 @@ const Singleblog = ({blogs}) => {
         </div>
       </div>
       <div className="md:flex-1 px-4">
-        <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2">Product Name</h2>
+        <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-2"></h2>
         <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
-         
+         {data.title}
         </p>
         <div className="flex mb-4">
           <div className="mr-4">
@@ -92,11 +96,7 @@ const Singleblog = ({blogs}) => {
         <div>
           <span className="font-bold text-gray-700 dark:text-gray-300">Product Description:</span>
           <p className="text-gray-600 dark:text-gray-300 text-sm mt-2">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-            sed ante justo. Integer euismod libero id mauris malesuada tincidunt. Vivamus commodo nulla ut
-            lorem rhoncus aliquet. Duis dapibus augue vel ipsum pretium, et venenatis sem blandit. Quisque
-            ut erat vitae nisi ultrices placerat non eget velit. Integer ornare mi sed ipsum lacinia, non
-            sagittis mauris blandit. Morbi fermentum libero vel nisl suscipit, nec tincidunt mi consectetur.
+        {data.description}
           </p>
         </div>
       </div>
@@ -109,3 +109,4 @@ const Singleblog = ({blogs}) => {
 }
 
 export default Singleblog
+

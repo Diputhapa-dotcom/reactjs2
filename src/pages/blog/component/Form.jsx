@@ -5,6 +5,7 @@ const Form = ({type,onSub},) => {
     title:'',
     subtitle:'',
   description:'',
+  category:'',
   files:''
   })
   const handleData = (e)=>{
@@ -33,16 +34,21 @@ setData({
       {/* Title */}
       <div className="mb-4">
         <label htmlFor="subtitle" className="block text-gray-700 font-semibold mb-2">Sub Title</label>
-        <input type="text" id="subtitle" name="subtitle" required className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter blog sub title"onChange={handleData}  />
+        <input type="text" id="subtitle" name="subtitle" required className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter blog sub title" onChange={handleData}  />
+      </div>
+      {/* category*/}
+      <div className="mb-4">
+        <label htmlFor="subtitle" className="block text-gray-700 font-semibold mb-2">category</label>
+        <input type="text" id="subtitle" name="category" required className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Enter blog sub title" onChange={handleData}  />
       </div>
       {/* description */}
       <div className="mb-4">
         <label htmlFor="description" className="block text-gray-700 font-semibold mb-2">Description</label>
-        <textarea id="description" name="description" required className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Write your blog content here" defaultValue={""} onChange={handleData} />
+        <textarea id="description" name="description" required className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Write your blog content here" onChange={handleData} />
       </div>
         {/* file */}
       <div className="mb-4">
-        <input type="file" name="files" className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Write your blog content here" defaultValue={""} onChange={handleData} />
+        <input type="file" name="files" className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Write your blog content here" onChange={handleData} />
       </div>
       {/* Submit Button */}
       <div className="text-center">

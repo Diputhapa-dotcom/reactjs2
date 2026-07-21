@@ -15,8 +15,9 @@ const Editblog = () => {
     "Authorization": localStorage.getItem("token")
   }
  });
- console.log(response.data)
- navigate(`/blog/${id}`)
+if(response.status===404){
+  navigate(`${baseurl}/blog/${id}`)
+}
   }
   
   return (
